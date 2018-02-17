@@ -1,14 +1,7 @@
-/*                     FUNCOES
-* Trabalho de Estrutura de Dados II (lista de prioridades)
-* Academico: Jhonathan Paulo Banczek
-* Professor: Ademir Martinez Sanches
-* Data: 26/08/2010
-* @email: banczek256@hotmail.com ou jpbanczek@gmail.com
-*  >>>>>>>>>>>>>>>>>>DOMINIO LIVRE<<<<<<<<<<<<<<
-*/
+
 #ifndef FUNCOES_H_INCLUDED
 #define FUNCOES_H_INCLUDED
-#include <fstream> //manipulação de arquivos
+#include <fstream> //manipulaÃ§Ã£o de arquivos
 #include <cstdlib> //pro linux
 
 
@@ -18,7 +11,7 @@
 
 using namespace std;
 
-//Struct com o nó na lista
+//Struct com o nÃ³ na lista
 //------------------------------------------------------------------------
 typedef struct NoProx
 {
@@ -31,25 +24,25 @@ typedef struct NoProx
 //------------------------------------------------------------------------
 
 /*------------------------------------|
-* função desenha, void                |
+* funÃ§Ã£o desenha, void                |
 * parametros: 1 ou 0                  |
-* função que desenha linhas da janela |
+* funÃ§Ã£o que desenha linhas da janela |
 *------------------------------------*/
 
 
 void desenha(int i)
 {
     if( i == 0)
-        cout<<"\nÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜ"<<endl;
+        cout<<"\nÃœÃœÃœÃœÃœÃœÃœÃœÃœÃœÃœÃœÃœÃœÃœÃœÃœÃœÃœÃœÃœÃœÃœÃœÃœÃœÃœÃœÃœÃœÃœ"<<endl;
 
         else if ( i == 1)
-            cout <<"ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ\n" << endl;
+            cout <<"Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›\n" << endl;
 }
 
 //------------------------------------------------------------------------
 
 /*-------------------------|
-* função insereNo, void    |
+* funÃ§Ã£o insereNo, void    |
 * recebe o nome e a data   |
 *-------------------------*/
 
@@ -86,12 +79,12 @@ void insereNo( string nome_insere, string data_insere, TLista * EndIns, int Posi
                 *Fim = NovoNo;
        }
     }
-} //fim da função insereNo
+} //fim da funÃ§Ã£o insereNo
 
 
 //------------------------------------------------------------------------
 /*------------------------------|
-* função insereOdenado, void  |
+* funÃ§Ã£o insereOdenado, void  |
 * recebe o nome e a data        |
 *--------------------------- -*/
 
@@ -114,7 +107,7 @@ void insereOrdenado( string nome, string data, TLista** Inicio, TLista** Fim )
            else              //caso meio
                insereNo(nome, data, aux2, MEIO, Inicio, Fim);
     }
-}//fim da função insereOrdenado
+}//fim da funÃ§Ã£o insereOrdenado
 //------------------------------------------------------------------------
 
 /*-------------------------------------------------|
@@ -146,7 +139,7 @@ void abrirArquivo (TLista** Inicio, TLista** Fim) {
          }
 
          else {
-             //string que receberão nome e data
+             //string que receberÃ£o nome e data
              string nome, data;
 
             //enquanto nao for fim do arquivo
@@ -154,17 +147,17 @@ void abrirArquivo (TLista** Inicio, TLista** Fim) {
 
                  getline(arq, bufferArquivo);//pega a primeira linha do arquivo
 
-                 //grava o nome da variavel da posição 0 até achar ';'
+                 //grava o nome da variavel da posiÃ§Ã£o 0 atÃ© achar ';'
                 nome = bufferArquivo.substr(0, bufferArquivo.find_first_of(';'));
 
-                 //grava a data de nascimento partindo do ';' até final da string "bufferArquivo"
+                 //grava a data de nascimento partindo do ';' atÃ© final da string "bufferArquivo"
                 data = bufferArquivo.substr(bufferArquivo.find_first_of(';')+1 );
 
                 if(nome != ""){//se nome for diferente de campo vazio insere
-                //chama a função que insere ordenado.
+                //chama a funÃ§Ã£o que insere ordenado.
                 insereOrdenado( nome, data, Inicio, Fim);
                 }
-                //e repete até fim do arquivo.
+                //e repete atÃ© fim do arquivo.
 
                 }
          }
@@ -172,7 +165,7 @@ void abrirArquivo (TLista** Inicio, TLista** Fim) {
         //fecha o arquivo
          arq.close();
 
-} //fim da função abrirArquivo
+} //fim da funÃ§Ã£o abrirArquivo
 
 
 //------------------------------------------------------------------------
@@ -190,15 +183,15 @@ void libera( TLista * Inicio )
      delete Inicio;
      Inicio = aux;
    }
-}//fim da função libera
+}//fim da funÃ§Ã£o libera
 
 //------------------------------------------------------------------------
 
 /*---------------------------------------------------|
-* função mostra, void                                |
+* funÃ§Ã£o mostra, void                                |
 *                                                    |
-* função que mostra os contatos armazenados          |
-* parametro: 0 = só mostra o que tem na lista        |
+* funÃ§Ã£o que mostra os contatos armazenados          |
+* parametro: 0 = sÃ³ mostra o que tem na lista        |
 * parametro: 1 = salva a lista no arquivo            |
 *---------------------------------------------------*/
 void mostra( TLista * Inicio, int opc ) {
@@ -243,7 +236,7 @@ void mostra( TLista * Inicio, int opc ) {
 
                     fgrava.close();//fecha o arquivo
                     }
-}//fim da função mostra
+}//fim da funÃ§Ã£o mostra
 
 
 #endif // FUNCOES_H_INCLUDED
